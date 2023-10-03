@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var hobbies = Hobby()
+    @State var showingAddHobby = false
+    
+    
     var body: some View {
         NavigationView {
+            ScrollView{
+                
+            }
+            .toolbar{
+                Button{
+                    showingAddHobby = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .sheet(isPresented: $showingAddHobby){
+                    Add()
+                }
+            }
             
         }
     }
